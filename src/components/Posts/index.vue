@@ -94,7 +94,7 @@
             <q-btn
               @click="deleteQweet(qweet)"
               flat
-              style="opacity: 0.9"
+              style="opacity: 0.7"
               round
               size="sm"
               color="primary"
