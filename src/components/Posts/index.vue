@@ -109,7 +109,6 @@
 
 <script>
 import { formatDistance } from "date-fns";
-import db from '/home/gynchiii/ALLTHINGS/qwitter/src/boot/firebase'
 
 export default {
   data() {
@@ -147,23 +146,6 @@ export default {
       let formatDate = new Date(date);
       return formatDistance(formatDate, new Date());
     },
-  },
-  mounted() {    
-        db.collection('qweets').onSnapshot(snapashot => {
-          snapshot.docChanges().forEach(change => {
-            let qweetChange = change.doc.data()
-        if (change.type === "added") {
-          console.log("New qweet: ", qweetChange);
-          this.qweets.unshift(qweetChange)
-        }
-        if (change.type === "modified") {
-          console.log("Modified qweet: ", qweetChange);
-        }
-        if (change.type === "removed") {
-          console.log("Removed qweet: ", qweetChange);
-        }
-      });
-    });
   },
 };
 </script>
